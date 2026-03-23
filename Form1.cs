@@ -42,5 +42,10 @@ namespace fotostydya
             Form3 Form3 = new Form3();
             Form3.ShowDialog();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
