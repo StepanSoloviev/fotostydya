@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace fotostydya
 {
-    internal class AppConect
+    internal class AppData
     {
         public static DataSet userSet = new DataSet();
         public static SqlDataAdapter sqlDataAdapter;

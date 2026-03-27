@@ -46,22 +46,19 @@ namespace fotostydya
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            try
+            bool flag = false;
+            foreach (DataRow row in AppData.userSet.Tables[0].Rows)
             {
-                var userObj = AppData.AppConect.model0db.Authors.FirstOrDefault(x => x.Login == txtlogin.Text && x.Password == txtpassword.Text);
-                if (userObj == null)
+                if (row["Login"].ToString() == textBox6.Text && row["password"].ToString() == textBox3.Text)
                 {
-                    MessageBox.Show("Такого пользотеля нет", "Ошибка Авторизвции", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Здравствуйте автор" + userObj.AuthorName + "!", "Уведомление", MessageBoxButtons.OK);
-                    AppData.AppFreyn.frameMain.Navigate(new AppData.Form3());
+                    Form3 Form3 = new Form3();
+                    Form3.ShowDialog();
                 }
             }
-            catch (Exception ex)
+            if (!flag)
             {
-                MessageBox.Show("" + ex.Message.ToString(), "Критическая ошибка приложение", MessageBoxButtons.OK);
+                MessageBox.Show("Вы не успешно авторизировались", "Авторизация прпойдена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
 
         }
@@ -71,6 +68,16 @@ namespace fotostydya
 
             Form1 Form1 = new Form1();
             Form1.ShowDialog();
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
