@@ -60,12 +60,7 @@ namespace fotostydya
 
             if (!String.IsNullOrEmpty(textBox6.Text))
             {
-                if (IsUserAlreadyExisits(textBox6.Text))
-
-                {
-                    MessageBox.Show("Твой польлзователь существует!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+               
                 if (!String.IsNullOrEmpty(textBox6.Text) && !String.IsNullOrEmpty(textBox3.Text))
                 {
                     if (textBox1.Text == textBox3.Text)
