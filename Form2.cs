@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -96,6 +97,16 @@ namespace fotostydya
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+  private void SaveData()
+        {
+            SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(AppData.sqlDataAdapter);
+            AppData.sqlDataAdapter.Update(AppData.userSet);
         }
     }
     }

@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp3;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace fotostydya
@@ -17,17 +19,22 @@ namespace fotostydya
         public Form1()
         {
             InitializeComponent();
+            string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Fotost;Integrated Security=False";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            if (sqlConnection.State == ConnectionState.Open)
+            {
+                string selectQuery = "SELECT * FROM pyt";
+                AppData.sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
+                AppData.sqlDataAdapter.Fill(AppData.userSet);
+            }
         }
 
        
 
 
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Form1 Form1 = new Form1();
-            Form1.ShowDialog();
-        }
+    
 
         private void txtlogin_Click(object sender, EventArgs e)
         {
@@ -51,8 +58,8 @@ namespace fotostydya
             {
                 if (row["Login"].ToString() == textBox6.Text && row["password"].ToString() == textBox3.Text)
                 {
-                    Form3 Form3 = new Form3();
-                    Form3.ShowDialog();
+                    Form3 form3 = new Form3();
+                    form3.ShowDialog(); 
                 }
             }
             if (!flag)
@@ -66,8 +73,8 @@ namespace fotostydya
         private void button4_Click(object sender, EventArgs e)
         {
 
-            Form1 Form1 = new Form1();
-            Form1.ShowDialog();
+            Form2 Form2 = new Form2();
+            Form2.ShowDialog();
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
