@@ -34,12 +34,6 @@ namespace WindowsFormsApp3
                         Zakaz = Convert.ToDateTime(row["DataZ"]),
                         Qena1 = Convert.ToInt32(row["Qena"]),
 
-
-                    });
-                }
-            }
-            return trips;
-        }
         private void BindTripsToDataGridView()
         {
             LoadTripsData();
