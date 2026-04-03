@@ -24,7 +24,7 @@ namespace fotostydya
             sqlConnection.Open();
             if (sqlConnection.State == ConnectionState.Open)
             {
-                string selectQuery = "SELECT * FROM pyt";
+                string selectQuery = "SELECT * FROM Clients";
                 AppData.sqlDataAdapter = new SqlDataAdapter(selectQuery, sqlConnection);
                 AppData.sqlDataAdapter.Fill(AppData.userSet);
             }
@@ -58,8 +58,19 @@ namespace fotostydya
             {
                 if (row["Login"].ToString() == textBox6.Text && row["password"].ToString() == textBox3.Text)
                 {
-                    Form3 form3 = new Form3();
-                    form3.ShowDialog(); 
+                    if (row["IDP"].ToString() == "1")
+                    {
+                        MessageBox.Show("Здвровствуйте Адмимнистратор" + row["FIO"].ToString(), "Авторизация прпойдена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        flag = true;
+                    }
+                    
+                    else
+                    {
+                        MessageBox.Show("Здвровствуйте пользователь" + row["FIO"].ToString(), "Авторизация прпойдена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        flag = true;
+                    }
+                    Form3 Form3 = new Form3();
+                    Form3.ShowDialog();
                 }
             }
             if (!flag)

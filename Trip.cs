@@ -15,6 +15,7 @@ namespace fotostydya
         public int Id { get; set; }
         public string Razmer1 { get; set; }
         public string Naz1 { get; set; }
+        public string Naz2 { get; set; }
         public string Sot { get; set; }
         public string Spos { get; set; }
         public string Mes { get; set; }
@@ -23,16 +24,14 @@ namespace fotostydya
         public string TypeDescription { get; set; }
         = string.Empty;
         public Trip() { }
-        public Trip(string Razmer, string Nazm, string Nazs,
-     string FIO, DateTime DataZ, int Qena)
+        public Trip(string Razmer, string RNaz, string MNaz,
+     string SFIO, DateTime DataZ, int Qena)
         {
             Razmer1 = Razmer;
-            Naz1 = Nazm;
-            Spos = Nazs;
-            Sot = FIO;
-            Zakaz = DataZ;
+            Naz1 = RNaz;
+            Naz2 = MNaz;
             Qena1 = Qena;
-         
+            Sot = SFIO;
 
 
         }
